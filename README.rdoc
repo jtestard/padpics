@@ -1,3 +1,14 @@
+== Padpics Documentation
+Currently using HTTP.
+Migration to HTTPS requires SSL certificate purchase. Will have to use 
+
+  <tt>web: bundle exec thin start --ssl</tt> for the procfile.
+
+
+Rails documentation is available below. 
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
