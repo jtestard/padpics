@@ -11,6 +11,9 @@ end
 
 module Padpics
   class Application < Rails::Application
+    
+    #Forces the system to use SSL (https instead of http)
+    config.force_ssl = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
