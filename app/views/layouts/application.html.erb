@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Padpics</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+		<title>Padpics</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="session">
+			<%if current_user%>
+			<%= link_to :logout, logout_path%>
+			<%else%>
+			<%= link_to :login, login_path %> or <%= link_to :signup, signup_path%>
+			<%end%>
+		</div>
+		<div id="notice">
+			<%= notice %>
+		</div>
+		<div id="alert">
+			<%= alert %>
+		</div>
+		<%= yield %>
+	</body>
 </html>

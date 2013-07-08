@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+
+#alert {
+	color : red;
+}
+
+#notice {
+	color : green;
+}
+
+#session {
+	position : absolute;
+	right : 0px;
+	top : 0px;
+}
+
+body {
+	background-color : #F7F3D7;
+	position : relative;
+}
