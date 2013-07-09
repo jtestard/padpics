@@ -21,7 +21,6 @@ class UsersController < ApplicationController
       flash[:alert] = "There was a problem creating you."
       render :action => :new
     end
-
   end
 
   def show
@@ -34,12 +33,21 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user # makes our views "cleaner" and more consistent
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
-      redirect_to account_url
+    if params[:user].keys.include?(:url) and params[:user].keys.include?(:image)
+      render :action => edit, :alert => "You cannot upload from file and from url in a single request. Please choose one or the other."
     else
-      render :action => :edit
+      saved = if params[:user].keys.include?(:url)
+        no_url = params[:user].except(:url)
+        @user.update_attributes(no_url) and @user.image_from_url(params[:user][:url])
+      else
+        @user.update_attributes(params[:user])
+      end
+      if saved
+        flash[:notice] = "Account updated!"
+        redirect_to account_url
+      else
+        render :action => :edit
+      end
     end
   end
-
 end

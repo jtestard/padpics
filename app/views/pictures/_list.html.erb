@@ -1,0 +1,8 @@
+<h3>Pictures</h3>
+<%@pictures.each do |picture|%>
+<div class="picture"><ul>
+<li><%=image_tag picture.image.url(:medium)%></li>
+<li>By : <%=picture.user.username%></li>
+<li><%=link_to "Show", picture%></li>
+</ul></div>
+<%end%>

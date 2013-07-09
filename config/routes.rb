@@ -6,8 +6,9 @@ Padpics::Application.routes.draw do
 
   resources :users  # give us our some normal resource routes for users
   resource :user, :as => 'account'  # a convenience route
+  resources :pictures
 
   match 'signup' => 'users#new', :as => :signup
 
-  root :to => 'users#index'
+  root :to => 'pictures#index'
 end

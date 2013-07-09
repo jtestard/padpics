@@ -1,0 +1,11 @@
+<h3>Account Settings</h3>
+<%=form_for @user, :html => { :multipart => true } do |form|%>
+<%if false%>
+<!-- TODO : Enable uploaded by URL -->
+<%= form.label :image_url %>*<br />
+<%= form.url_field :image_url%>
+<%end%>
+<%= form.label :image%> : 
+<%= form.file_field :image%>
+<%= form.submit "update"%>
+<%end%>

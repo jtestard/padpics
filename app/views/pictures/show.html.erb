@@ -1,0 +1,5 @@
+<div class='title'><%=@picture.image_file_name%></div>
+<%=image_tag @picture.image.url%>
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', pictures_path %>

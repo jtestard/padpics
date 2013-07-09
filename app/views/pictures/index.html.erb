@@ -1,0 +1,6 @@
+<%if current_user%>
+	<%= link_to 'New Picture', new_picture_path %>
+<%end%>
+<div id="picture_pond">
+	<%= render :partial => 'list' %>
+</div>
